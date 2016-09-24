@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Contrail+One' rel='stylesheet' type='text/css'>
+<style>
+body {
+  font-family: Tahoma, Geneva, sans-serif;
+  background:#eee;
+  margin:0;
+  background: url('back.jpg') no-repeat 50% 50% fixed; 
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  color:white;
+  text-shadow: 2px 2px 2px black, 1px 1px 1px black;
+}
+a:visited {
+  color:#96c;
+}
+div#outer {
+  margin:20px 33px 10px 30px;
+  position:relative;
+}
+div#innerleft, div#innerright {
+  position: absolute;
+  top: 0;
+}
+div#innerleft {
+  width:40%;
+  left: 0;
+}
+div#innerright {
+  width:60%;
+  right: 0;
+}
+div.hdr {
+  background:rgba(0,0,0,0.7);
+  padding:22px;
+}
+div.hdr a {
+  color:white;
+  text-decoration:none;
+}
+div.hdr a:hover {
+  color:#ccf;
+}
+a#title {
+  display: inline-block;
+  font-size:30px;
+  font-family: 'Contrail One', cursive;
+  margin-right:50px;
+}
+a#why {
+  position: relative;
+  top: -4px;
+}
+div#queuefiles, div#connection {
+  background: rgba(0,0,0,0.7);
+  position: relative;
+  border-radius: 10px;
+  padding: 40px;
+  font-size: 14px;
+}
+div.bigger {
+  font-size: 20px;
+}
+div#queuefiles {
+  left: -10px;
+}
+div#connection {
+  left: 10px;
+  margin-bottom:50px;
+}
+div#initializing, div#waiting, div#connected, div#attempting, div#incompatible {
+  text-align:center;
+  display:none;
+}
+div.initializing div#initializing, div.waiting div#waiting, div.connected div#connected, div.attempting div#attempting, div.incompatible div#incompatible,
+div.hasfiles div#filelist {
+  display:block;
+}
+div#filelist,
+div.hasfiles div#nofiles,
+div.availableFile a, div.availableFile button, div.availableFile span {
+  display:none;
+}
+div.availableFile.available button {
+  display:inline-block;
+}
+div.availableFile.done a, div.availableFile.downloading span {
+  display:inline;
+}
+h1 {
+  margin-bottom:5px;
+}
+div#id {
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size:24px;
+  margin:5px;
+}
+canvas#qr-code {
+  display:inline-block;
+  margin:5px;
+}
+div#overlay, div#shade {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+div#overlay {
+  z-index:10;
+  cursor:pointer;
+  display:none;
+}
+div#overlay.drophover {
+  display:block;
+}
+div#shade {
+  background:#000;
+  opacity:0.3;
+}
+div#share1 {
+  position:absolute;
+  top:50%;
+  width:100%;
+  text-align:center;
+}
+div#share2 {
+  display:inline-block;
+  position:relative;
+  top:-110px;
+  font-size:36px;
+  background:white;
+  line-height:48px;
+  padding:80px;
+  border: 1px dashed black;
+  border-radius: 10px;
+}
+div.qr-holder {
+  width: 130px;
+  padding: 10px 0 0 10px;
+  margin: 10px auto 30px auto;
+  background:white;
+  border-radius: 10px;
+}
+</style>
+</head>
+<body>
+
+<div id="overlay">
+  <div id="shade"></div>
+  <div id="share1">
+    <div id="share2">Drop files to share.</div>
+  </div>
+</div>
+
+<div class="hdr">
+  <a id="title" href="http://sendfiles.direct/">SendFiles.direct</a>
+  <a id="why" href="/why.html">FAQ</a>
+</div>
+
+<div id="outer">
+
+  <div id="innerleft">
+    <div id="queuefiles">
+      <div class="bigger">Shared Files</div>
+      <div>Select files (or drag-and-drop them):</div>
+    </div>
+  </div>
+
+  <div id="innerright">
+    <div id="connection" class="initializing">
+      <div id="initializing">Initializing...</div>
+
+      <div id="incompatible">This browser does not support WebRTC.</div>
+
+      <div id="waiting">
+        <div class="bigger">Computer ID:</div>
+        <div id="id"></div>
+        <div>(open SendFiles.direct on another computer and enter this ID to connect)</div>
+        <button id="directlink">Get a URL...</button><br/><br/>
+
+        <div class="bigger">Send this ID to your phone:</div>
+        <div class="qr-holder">
+        <canvas id="qr-code"></canvas>
+        </div>
+
+        <button id="connect">Connect to another computer...</button>
+      </div>
+
+      <div id="attempting">
+        Attempting to connect.
+      </div>
+
+      <div id="connected">
+        <div class="bigger">Connected.</div>
+        <div id="nofiles">No files available.</div>
+        <div id="filelist">Files available:</div>
+        <button id="disconnect">Disconnect</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="./peer-0.3.14.js"></script>
+<script src="./qr.min.js"></script>
+<script src="./warp.js"></script>
+
+</body>
+</html>

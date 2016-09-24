@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  font-family: Tahoma, Geneva, sans-serif;
+  text-align: center;
+  font-size: 16px;
+}
+p#id {
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+
+<p>Saved computer ID:</p>
+
+<p id="id">[Error loading ID]</p>
+
+<p>To connect:
+<ol>
+ <li>Open <a href="http://sendfiles.direct/">SendFiles.direct</a> on another computer.</li>
+ <li>Click "Connect to another computer".</li>
+ <li>Type in the ID above.</li>
+</ol>
+</p>
+
+<script>
+if (document.location.hash) {
+  var elt = document.getElementById('id');
+  elt.innerHTML = '';
+  elt.appendChild(document.createTextNode(document.location.hash.substring(1)));
+}
+</script>
+
+</body>
+</html>

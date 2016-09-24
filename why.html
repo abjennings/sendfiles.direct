@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Contrail+One' rel='stylesheet' type='text/css'>
+<style>
+body {
+  font-family: Tahoma, Geneva, sans-serif;
+  background:#eee;
+  margin:0;
+  background: url('back.jpg') no-repeat 50% 50% fixed; 
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  color:white;
+  text-shadow: 2px 2px 2px black, 1px 1px 1px black;
+}
+a:visited {
+  color:#96c;
+}
+div.hdr {
+  background:rgba(0,0,0,0.7);
+  padding:22px;
+}
+div.hdr a {
+  color:white;
+  text-decoration:none;
+}
+div.hdr a:hover {
+  color:#ccf;
+}
+a#title {
+  display: inline-block;
+  font-size:30px;
+  font-family: 'Contrail One', cursive;
+  margin-right:50px;
+}
+a#why {
+  position: relative;
+  top: -4px;
+}
+div#outer {
+  margin:20px 50px 50px 50px;
+}
+div#copy {
+  background: rgba(0,0,0,0.7);
+  width: 75%;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 40px;
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <a id="title" href="http://sendfiles.direct/">SendFiles.direct</a>
+  <a id="why" href="/why.html">FAQ</a>
+</div>
+
+<div id="outer">
+  <div id="copy">
+    <h2>Why?</h2>
+    <p>
+      The existing solutions for transferring files between computers weren't convenient enough.  They all 
+      seem to require logging into an account or transferring a long, cryptic code. 
+    </p>
+    <h2>Why not login to an account? (Email, Dropbox, etc.)</h2>
+    <p>
+      My passwords aren't memorized.  They're in a password manager, so it's quite inconvenient to log in on
+      another computer.  Also, I may not trust the computer, so I don't want to type in an important password.
+      And even if I did, it's annoying that the browser is going to remember my username and password unless
+      I remember to wipe them afterwards.
+    </p>
+    <h2>What's wrong with a long, cryptic code? (Dropbox link, etc.)</h2>
+    <p>
+      I would need a good way to send the code to the other computer without logging in anywhere (see
+      above), and I haven't found one yet.  I could always write it down, but this is the 21st century.
+      There has to be a better way!
+    </p>
+    <h2>How about a thumb drive?</h2>
+    <p>
+      If one of the computers isn't trusted, then I don't want to plug in a thumb drive.  I've had a few
+      fail on me, so I don't fully trust them.  And sometimes I'm working via remote-access software (that
+      doesn't support file transfer or clipboard sharing) and a thumb drive isn't an option.
+    </p>
+    <p>
+      Additionally, for small files and short distances, a thumb drive has quite a bit of annoying overhead
+      (plug in the drive, wait for OS to recognize, open explorer/finder, copy files, unmount drive, unplug,
+      walk across room, plug in the drive, wait 1-2 minutes for Windows to install drivers, open explorer,
+      copy files, delete files, unmount drive, unplug).
+    </p>
+    <h2>So how does SendFiles.direct work?</h2>
+    <p>
+      <ol>
+        <li>Open SendFiles.direct on one computer and scan the QR code on your phone.</li>
+        <li>Drop the files you want to share onto the webpage.</li>
+        <li>Open SendFiles.direct on the other computer and type in the computer ID shown on your phone.</li>
+        <li>Download the files.</li>
+      </ol>
+    </p>
+    <p>
+      With an account ($5 for life), you never need to type the key.  Just scan the QR codes on both
+      computers to connect them.
+    </p>
+    <h2>Requirements</h2>
+    <p>
+      Chrome 31+ or Firefox 23+ is required, to support direct computer-to-computer connections (WebRTC).
+    </p>
+    <h2>Do my files go through your server?</h2>
+    <p>
+      No.  SendFiles.direct uses WebRTC to transfer the files directly from one computer to another.  However, a
+      small amount of data is sent to a server to facilitate the connection.
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
