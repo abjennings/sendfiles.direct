@@ -1,4 +1,4 @@
-var peer = new Peer(null, {host: 'bettervoting.org', port: 9000, path: '/myapp'});
+var peer = new Peer(null, {host: 'peer.sendfiles.direct', port: 9000});
 
 function $id(s) { return document.getElementById(s); }
 function $txt(s) { return document.createTextNode(s); }
