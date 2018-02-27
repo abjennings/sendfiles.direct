@@ -1,4 +1,4 @@
-var peer = new Peer(null, {key: '09bfgv4wrnzjv2t9'});
+var peer = new Peer(null, {host: 'bettervoting.org', port: 9000, path: '/myapp'});
 
 function $id(s) { return document.getElementById(s); }
 function $txt(s) { return document.createTextNode(s); }
