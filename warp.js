@@ -286,7 +286,7 @@ function setupDragDrop() {
 }
 
 function tryConnect(key) {
-  var conn = peer.connect(key.trim().replace(/-/g, ''));
+  var conn = peer.connect(key.trim());
   peerConnected(conn);
   $id('connection').className = 'attempting';
   connectState++;
@@ -300,16 +300,8 @@ function tryConnect(key) {
   }, 10000);
 }
 
-function dashify(s) {
-  if (s.length > 4) {
-    return s.substring(0,4) + '-' + dashify(s.substring(4));
-  } else {
-    return s;
-  }
-}
-
 peer.on('open', function() {
-  var id = dashify(peer.id);
+  var id = peer.id;
   qr.canvas({ canvas: $id('qr-code'), value: 'http://sendfiles.direct/save.html#' + id });
 
   $id('id').appendChild($txt(id));
